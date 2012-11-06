@@ -1,0 +1,21 @@
+<Addin id="VersioningAddin"
+    namespace="Tomboy"
+    name="Versioning"
+    author="Francisco José Rodríguez Bogado"
+    description="Support for versioning on notes."
+    category="Tools"
+    defaultEnabled="false"
+    version="0.1">
+
+    <Runtime>
+        <Import assembly="Versioning.dll" />
+    </Runtime>
+
+    <Dependencies>
+        <Addin id="Tomboy" version="0.10" />
+    </Dependencies>
+
+    <Extension path="/Tomboy/NoteAddins">
+        <NoteAddin type="Tomboy.Versioning.VersioningAddin" />
+    </Extension>
+</Addin>
