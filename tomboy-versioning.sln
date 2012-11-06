@@ -6,6 +6,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4D0C3559-1E4F-4006-B9FC-37B3E2E81EFB}"
 	ProjectSection(SolutionItems) = preProject
 		compile.sh = compile.sh
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global

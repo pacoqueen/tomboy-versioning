@@ -28,11 +28,34 @@ namespace Tomboy.Versioning
 {
     public class VersioningAddin : NoteAddin
     {
-        public override void Initialize(){}
+        Gtk.MenuItem itemBack;
+        Gtk.MenuItem itemFwd;
         
-        public override void Shutdown(){}
+        public override void Initialize(){
+            itemBack = new Gtk.MenuItem(Catalog.GetString("Back to previous version of this note."));
+            itemBack.Activated += OnMenuBackActivated;
+            itemBack.Show();
+            AddPluginMenuItem(itemBack);
+            
+            itemFwd = new Gtk.MenuItem(Catalog.GetString("Forward to a later version of this note."));
+            itemFwd.Activated += OnMenuFwdActivated;
+            itemFwd.Show();
+            AddPluginMenuItem(itemFwd);
+        }
+        
+        public override void Shutdown(){
+            itemBack.Activated -= OnMenuBackActivated;
+            itemFwd.Activated -= OnMenuFwdActivated;
+        }
         
         public override void OnNoteOpened(){}
+        
+        void OnMenuBackActivated(object sender, EventArgs args){
+            Logger.Info("Activated 'Back to previous version' menu item.");
+        }
+        
+        void OnMenuFwdActivated(object sender, EventArgs args){
+            Logger.Info("Activated 'Forward to a later version' menu item.");
+        }
     }
 }
-
